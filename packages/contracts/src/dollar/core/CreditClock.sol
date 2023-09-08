@@ -15,17 +15,17 @@ contract CreditClock {
     /// @notice Access control contract
     IAccessControl public accessControl;
 
-    /// @notice ABDKMathQuad with value of 1.
-    bytes16 private immutable one = uint256(1).fromUInt();
-
-    /// @notice The block height from where we start applying the rate.
-    uint256 public rateStartBlock;
-
     /// @notice This is the exchange rate of Credits for the start block.
     bytes16 public rateStartValue;
 
     /// @notice Deprecation rate. How many Dollars are deprecated on each block.
     bytes16 public ratePerBlock;
+
+    /// @notice ABDKMathQuad with value of 1.
+    bytes16 private immutable one = uint256(1).fromUInt();
+
+    /// @notice The block height from where we start applying the rate.
+    uint256 public rateStartBlock;
 
     /// @notice Emitted when depreciation rate per block is updated
     event SetRatePerBlock(
